@@ -18,13 +18,8 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import edu.nd.pmcburne.hwapp.one.Gender
-import edu.nd.pmcburne.hwapp.one.Repo
-import edu.nd.pmcburne.hwapp.one.DbModule
-import edu.nd.pmcburne.hwapp.one.NetworkModule
 import edu.nd.pmcburne.hwapp.one.GameUi
 import edu.nd.pmcburne.hwapp.one.ui.theme.HWStarterRepoTheme
-import edu.nd.pmcburne.hwapp.one.MainState
-import edu.nd.pmcburne.hwapp.one.MainViewModel
 import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneId
@@ -180,6 +175,16 @@ private fun MainScreen(
     }
 }
 
+//@Composable
+//fun GameItemUi(game: GameUi) {
+//    Column(modifier = Modifier.fillMaxWidth().padding(8.dp)) {
+//        Text(game.titleLine, style = MaterialTheme.typography.titleMedium)
+//        Text(game.statusLine, style = MaterialTheme.typography.bodyMedium)
+//        game.scoreLine?.let { Text(it, style = MaterialTheme.typography.bodyLarge) }
+//        game.winnerHint?.let { Text(it, style = MaterialTheme.typography.bodySmall) }
+//        Divider()
+//    }
+//}
 @Composable
 private fun GameCard(game: GameUi) {
     Card(modifier = Modifier.fillMaxWidth()) {

@@ -23,10 +23,10 @@ class Repo(
             val dd = "%02d".format(date.dayOfMonth)
 
             val response = api.getScoreboard(gender.apiSlug, yyyy, mm, dd)
-            Log.d("Repo", "API Response: $response")
+            Log.d("GameRepo", "API Response: $response") //testing
 
             if (response.games.isEmpty()) {
-                Log.w("Repo", "No games returned from API for $date, ${gender.apiSlug}")
+                Log.w("GameRepo", "No games returned from API for $date, ${gender.apiSlug}") //testing
                 return
             }
 
@@ -52,7 +52,7 @@ class Repo(
             }
 
             dao.upsertAll(entities)
-            Log.d("Repo", "Saved ${entities.size} games to database") //test
+            Log.d("Repo", "Saved ${entities.size} games to database") //testing
         } catch (ex: Exception) {
             Log.e("Repo", "Refresh failed", ex) //log fails
             throw ex // allow ViewModel.onFailure to catch and display message
@@ -65,4 +65,5 @@ class Repo(
         val caps = cm.getNetworkCapabilities(network) ?: return false
         return caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
     }
+
 }

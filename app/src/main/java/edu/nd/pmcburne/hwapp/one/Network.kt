@@ -30,6 +30,25 @@ data class GameWrapper(
     val game: ApiGame
 )
 
+//Response classes
+//data class ApiResponse(val events: List<ApiGame>)
+//
+//data class ApiGame(
+//    val id: String,
+//    val home: TeamInfo,
+//    val away: TeamInfo,
+//    val status: StatusInfo
+//)
+//
+//data class TeamInfo(val name: String, val score: Int?)
+//
+//data class StatusInfo(
+//    val type: String,        // UPCOMING, IN_PROGRESS, FINAL
+//    val startTime: String?,  // "2026-03-13T19:00Z"
+//    val period: String?,
+//    val clock: String?,
+//    val winner: String?      // "home", "away", or null
+//)
 data class ApiGame(
     @SerializedName("gameID") val gameId: String,
     val gameState: String = "",

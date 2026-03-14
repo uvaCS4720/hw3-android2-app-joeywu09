@@ -40,11 +40,19 @@ class MainViewModel(private val repo: Repo) : ViewModel() {
             MainState(date = d, gender = g, isLoading = loading, games = items, errorHint = err)
         }.stateIn(viewModelScope, SharingStarted.Eagerly, MainState())
 
+    //    fun changeDate(date: LocalDate) {
+//        _selectedDate.value = date
+//        refreshGames()
+//    }
     fun setDate(newDate: LocalDate) {
         date.value = newDate
         refresh()
     }
 
+    //    fun toggleGender(gender: String) {
+//        _selectedGender.value = gender
+//        refreshGames()
+//    }
     fun setGender(newGender: Gender) {
         gender.value = newGender
         refresh()
