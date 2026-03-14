@@ -118,24 +118,32 @@ private fun MainScreen(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            OutlinedButton(onClick = { showDatePicker = true }) {
+            // DATE PICKER BUTTON
+            Button(onClick = { showDatePicker = true }) {
                 Text(state.date.toString())
             }
 
             Spacer(Modifier.width(12.dp))
 
-            SingleChoiceSegmentedButtonRow {
-                SegmentedButton(
-                    selected = state.gender == Gender.MEN,
-                    onClick = { onPickGender(Gender.MEN) },
-                    shape = SegmentedButtonDefaults.itemShape(index = 0, count = 2)
-                ) { Text("Men") }
+            // GENDER BUTTONS
+            Button(
+                onClick = { onPickGender(Gender.MEN) },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = if (state.gender == Gender.MEN) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.secondary
+                )
+            ) {
+                Text("Men")
+            }
 
-                SegmentedButton(
-                    selected = state.gender == Gender.WOMEN,
-                    onClick = { onPickGender(Gender.WOMEN) },
-                    shape = SegmentedButtonDefaults.itemShape(index = 1, count = 2)
-                ) { Text("Women") }
+            Spacer(Modifier.width(8.dp))
+
+            Button(
+                onClick = { onPickGender(Gender.WOMEN) },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = if (state.gender == Gender.WOMEN) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.secondary
+                )
+            ) {
+                Text("Women")
             }
 
             Spacer(Modifier.weight(1f))
