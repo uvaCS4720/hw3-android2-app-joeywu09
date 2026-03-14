@@ -109,7 +109,7 @@ private fun MainScreen(
             .padding(12.dp)
     ) {
         Text(
-            text = "College Basketball Games",
+            text = "College Basketball Games (NCAA)",
             style = MaterialTheme.typography.headlineMedium,
             modifier = Modifier.padding(bottom = 12.dp)
         )

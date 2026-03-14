@@ -74,7 +74,7 @@ class MainViewModel(private val repo: Repo) : ViewModel() {
 }
 
 private fun GameEntity.toUi(): GameUi {
-    Log.d("GameEntity", "Mapping to UI: $this")
+    Log.d("GameEntity", "Mapping to UI: $this") //testing
     val title = "${awayName} @ ${homeName}"
 
     val normalized = gameState.lowercase()
@@ -84,11 +84,19 @@ private fun GameEntity.toUi(): GameUi {
 
     val isLive = normalized == "live"
 
+//val score = if (isLive || isFinal) "${awayScore ?: "-"} - ${homeScore ?: "-"}" else null
+
     val score = if (isLive || isFinal) {
         val a = awayScore?.toString() ?: "-"
         val h = homeScore?.toString() ?: "-"
         "$a - $h"
     } else null
+
+//    val status = when {
+//        isFinal -> "Final"
+//        isLive -> (currentPeriod.ifBlank { "Live" } + if (contestClock.isBlank()) "" else " • $contestClock")
+//        else -> "Starts ${startTime.ifBlank { "TBD" }}"
+//    }
 
     val status = when {
         isFinal -> "Final"
